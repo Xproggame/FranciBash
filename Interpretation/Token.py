@@ -1,6 +1,6 @@
 from curses.ascii import isdigit
 
-from Fonction.Fonction import Fonction
+from Identifiant.Fonction import Fonction
 
 class Token:
 
@@ -30,7 +30,7 @@ class Token:
                         self.ligneactuelle.append((chaine_actu, 'chaine de caractere'))
                         chaine_actu = ''
 
-                elif element[0] == '-':
+                elif element[0] == '.':
                     self.ligneactuelle.append((element, 'parametre'))
 
                 elif isdigit(element[0]):
@@ -45,6 +45,9 @@ class Token:
                     self.ligneactuelle.append((element, 'Binaire'))
 
                 else:
-                    pass
 
-                    # en cours
+                    for fonction in self.fonction.listefonct.keys():
+
+                        if fonction == element:
+                            self.ligneactuelle.append((element, 'fonction'))
+                            break
