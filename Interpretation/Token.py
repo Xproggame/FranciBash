@@ -1,5 +1,4 @@
 from curses.ascii import isdigit
-
 from Identifiant.Fonction import Fonction
 
 class Token:
