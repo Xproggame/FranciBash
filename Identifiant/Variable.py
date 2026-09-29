@@ -29,6 +29,8 @@ class Variable:
 				valeur[1]
 			)
 
+		self.list_var[identifiant] = valeurfinal
+
     class Traiter:
 
 	    @staticmethod
