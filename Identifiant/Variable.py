@@ -7,9 +7,9 @@ class Variable:
 
         if valeur[1] == 'chaine de caractere':
             valeurfinale = (
-                self.Traiter.chaine_de_caractere(valeur[0]),
-                valeur[1]
-            )
+                	self.Traiter.chaine_de_caractere(valeur[0]),
+                	valeur[1]
+            	)
 
         if valeur[1] == 'nombre entier':
             valeurfinale = (
@@ -29,7 +29,13 @@ class Variable:
 				valeur[1]
 			)
 
-		self.list_var[identifiant] = valeurfinal
+		self.liste_var[identifiant] = valeurfinal
+
+	def recuperer(self, identifiant:str):
+		return self.liste_var[identifiant]
+
+	def recuperer_valeur(self, identifiant:str):
+		return self.liste_var[identifiant][0]
 
     class Traiter:
 
