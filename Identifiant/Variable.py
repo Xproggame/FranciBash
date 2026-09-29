@@ -9,13 +9,25 @@ class Variable:
             valeurfinale = (
                 self.Traiter.chaine_de_caractere(valeur[0]),
                 valeur[1]
-                )
+            )
 
         if valeur[1] == 'nombre entier':
             valeurfinale = (
                     self.Traiter.nombre_entier(valeur[0]),
                     valeur[1]
-                    )
+                )
+
+		if valeur[1] == 'nombre decimal':
+			valeurfinal = (
+				self.Traiter.nombre_decimal(valeur[0]),
+				valeur[1]
+			)
+
+		if valeur[1] == 'binaire':
+			valeurfinal = (
+				self.Traiter.binaire(valeur[0]),
+				valeur[1]
+			)
 
     class Traiter:
 
@@ -26,3 +38,14 @@ class Variable:
 		   
 		def nombre_entier(valeur:str):
 		    return int(valeur)
+
+		def nombre_decimal(valeur:str):
+			return float(valeur)
+
+		def valeur_binaire(valeur:str):
+
+			if valeur == 'Vrai':
+				return True
+
+			if valeur == 'Faux':
+				return False
