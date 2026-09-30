@@ -1,11 +1,13 @@
 from curses.ascii import isdigit
 from Identifiant.Fonction import Fonction
+from Identifiant.Variable import Variable
 
 class Token:
 
-    def __init__(self, fonction:Fonction):
+    def __init__(self, fonction:Fonction, variable:Variable):
         self.ligneactuelle = []
         self.fonction = fonction
+        self.variable = variable
 
     def traiter(self, lignebrut:str):
         ligne_actu_non_tok = lignebrut.split()
@@ -43,10 +45,19 @@ class Token:
                 elif element == 'Vrai' or element == 'Faux':
                     self.ligneactuelle.append((element, 'Binaire'))
 
-                else:
+				elif element == '=':
+					self.ligneactuelle.append((element, 'definition'))
+				
+				else:
 
                     for fonction in self.fonction.listefonct.keys():
 
                         if fonction == element:
                             self.ligneactuelle.append((element, 'fonction'))
                             break
+
+                    for identifiant in self.variable.liste_var.keys():
+
+						if identifiant == element:
+							self.ligneactuelle.append((element, 'variable'))
+							break
